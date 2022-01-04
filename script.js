@@ -39,7 +39,11 @@ const updateInputState = (elem, isWrong) => {
 const updateBtnState = (state) => addBtn.disabled = state;
 
 //функция для форматирования имени, первая буква в UpperCase, остальные в LowerCase
-const firstLetterToUppercCase = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+const firstLetterToUppercCase = (str) => {
+    return str.split(' ')
+              .map(word => `${word.charAt(0).toUpperCase()}${word.slice(1).toLowerCase()}`)
+              .join(' ');
+};
 
 //функция форматирования пола. Варианты для мужскго поля приводятся к "Male", для женского к 'Female'
 const formatSex = (sex) => {
