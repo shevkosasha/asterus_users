@@ -113,6 +113,8 @@ document.addEventListener('click',(e) => {
             elem.classList.remove('wrong');
             elem.classList.remove('ok');
         });
+        // дизейблим кнопку после добавления
+        addBtn.disabled = true;
     }
     // по кнопке удаления строчки просто удаляем строчку таблицы
     if (e.target && e.target.classList.contains("delete-button")) {
