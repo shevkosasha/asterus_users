@@ -87,9 +87,15 @@ document.addEventListener('input',(e) => {
 
         //обновляем состояние текущего инпута, если его значение соответствует условиям, будет показан зеленый бордер, иначе красный
         switch (true) {
-            case e.target.classList.contains('user-name'): updateInputState(e.target, isNameWrong); break;
-            case e.target.classList.contains('user-age'): updateInputState(e.target, isAgeWrong); break;
-            case e.target.classList.contains('user-sex'): updateInputState(e.target, isSexWrong); break;
+            case e.target.classList.contains('user-name'): 
+				updateInputState(e.target, isNameWrong); 
+				break;
+            case e.target.classList.contains('user-age'): 
+				updateInputState(e.target, isAgeWrong); 
+				break;
+            case e.target.classList.contains('user-sex'): 
+				updateInputState(e.target, isSexWrong); 
+				break;
         }
         // результаты проверок значений сохраняем в переменную state
         const state = isNameWrong || isAgeWrong || isSexWrong;
@@ -109,9 +115,16 @@ document.addEventListener('click',(e) => {
         addRow(name, age, sex);
         //очищаем инпуты и удаляем классы-модификаторыж
         document.querySelectorAll('.user-input').forEach(elem => {
+
             elem.value = '';
-            elem.classList.remove('wrong');
-            elem.classList.remove('ok');
+
+            if (elem.classList.contains('wrong')) {
+                elem.classList.remove('wrong');
+            }
+            
+            if (elem.classList.contains('ok')) {
+                elem.classList.remove('ok');
+            }            
         });
         // дизейблим кнопку после добавления
         addBtn.disabled = true;
@@ -160,9 +173,15 @@ document.addEventListener('click',(e) => {
                 else {
                     // если все ок, обновляем ячейку
                     switch (context) {
-                        case 'name': cell.textContent = firstLetterToUppercCase(value); break;
-                        case 'age': cell.textContent = value; break;
-                        case 'sex': cell.textContent = formatSex(value); break;
+                        case 'name': 
+                            cell.textContent = firstLetterToUppercCase(value); 
+                            break;
+                        case 'age': 
+                            cell.textContent = value; 
+                            break;
+                        case 'sex': 
+                            cell.textContent = formatSex(value); 
+                            break;
                     } 
                     if (cell.classList.contains('wrong')) {
                         cell.classList.remove('wrong');
